@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FAQ - Missed Call Recovery for UK Dental Practices</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            background-color: #07363c;
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 900px;
+        }
+
+        h2 {
+            margin-bottom: 30px;
+        }
+
+        h3 {
+            margin-top: 25px;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Frequently Asked Questions About Missed Call Recovery for UK Dental Practices</h2>
+
+        <h3>How does missed call recovery work for UK dental practices?</h3>
+        <p>Our missed call recovery system automatically detects when a patient call goes unanswered and instantly sends an SMS response with a booking link. Your reception team is notified so they can follow up and confirm the appointment. This ensures no patient enquiry is lost.</p>
+
+        <h3>Why are missed calls a major problem for dental practices in the UK?</h3>
+        <p>Many UK dental practices lose high-value private patients because reception teams are busy with in-practice patients. Even one missed implant or cosmetic enquiry can represent £1,000–£3,000 in lost revenue. Missed call recovery ensures every opportunity is captured.</p>
+
+        <h3>Does this system work for both NHS and private dental clinics?</h3>
+        <p>Yes. The system works for NHS practices, private dental clinics, and mixed practices across England, Scotland, Wales and Northern Ireland. It is especially valuable for private treatment enquiries where speed of response is critical.</p>
+
+        <h3>Will patients actually respond to automated SMS messages?</h3>
+        <p>Yes. SMS has a very high open rate in the UK, often above 90%. Patients appreciate immediate responses and the convenience of booking directly from their phone.</p>
+
+        <h3>Can the system integrate with our existing dental practice management software?</h3>
+        <p>Our missed call recovery solution is designed to integrate smoothly with most UK dental practice workflows. It works alongside your current booking systems without disrupting daily operations.</p>
+
+        <h3>How quickly are messages sent after a missed call?</h3>
+        <p>Messages are typically sent within seconds of a missed call, ensuring your practice responds faster than competitors and improves patient experience.</p>
+
+        <h3>Does this help increase private dental patient bookings?</h3>
+        <p>Yes. Faster follow-up dramatically increases conversion rates for high-value treatments such as dental implants, Invisalign, cosmetic dentistry and smile makeovers.</p>
+
+        <h3>Is missed call recovery GDPR compliant in the UK?</h3>
+        <p>Yes. Our system is designed with UK GDPR compliance in mind, ensuring patient data is handled securely and responsibly.</p>
+
+        <h3>How much revenue can a UK dental practice recover?</h3>
+        <p>Revenue recovery depends on call volume, but many practices recover thousands of pounds per month simply by converting previously missed enquiries into confirmed appointments.</p>
+
+        <h3>Will this replace my reception team?</h3>
+        <p>No. The system supports your reception team by acting as an additional safety net. It ensures no enquiry is forgotten while your team focuses on in-practice patient care.</p>
+
+        <h3>Is this suitable for cosmetic dentists and implant specialists?</h3>
+        <p>Yes. Cosmetic dentists and implant specialists benefit significantly because treatment values are higher and response speed directly impacts conversion rates.</p>
+
+        <h3>How quickly can the system be implemented in a UK dental practice?</h3>
+        <p>Implementation is typically fast and straightforward. Most UK practices can have the system running within days, with minimal disruption.</p>
+    </div>
+</body>
+</html>

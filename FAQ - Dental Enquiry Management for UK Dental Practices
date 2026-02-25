@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FAQ - Dental Enquiry Management System for UK Dental Practices</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            background-color: #07363c;
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 900px;
+        }
+
+        h2 {
+            margin-bottom: 30px;
+        }
+
+        h3 {
+            margin-top: 25px;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        ul, ol {
+            text-align: left;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+
+        a.demo-link {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a.demo-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Frequently Asked Questions About Dental Enquiry Management for UK Dental Practices</h2>
+
+        <h3>What is a Dental Enquiry Management System?</h3>
+        <p>Our Dental Enquiry Management System captures all patient enquiries from calls, emails, and website forms in real-time. It ensures that no enquiry is lost and enables your practice to follow up efficiently, converting more leads into booked appointments.</p>
+
+        <h3>How does it improve patient acquisition for UK dental practices?</h3>
+        <p>The system automatically notifies your reception team of new enquiries and sends instant SMS or email follow-ups. This rapid response increases conversion rates, particularly for high-value treatments such as implants, Invisalign, and cosmetic dentistry.</p>
+
+        <h3>Does it work for both NHS and private dental practices?</h3>
+        <p>Yes. The system is designed for NHS, private, and mixed practices across the UK. It’s especially beneficial for private treatment enquiries, where timely follow-up significantly impacts patient conversion.</p>
+
+        <h3>Can it integrate with my current dental software?</h3>
+        <p>Yes. The system integrates seamlessly with most UK dental practice management systems, working alongside your existing workflows without disruption.</p>
+
+        <h3>How quickly are patients contacted after making an enquiry?</h3>
+        <p>Patients typically receive an SMS or email response within seconds of submitting an enquiry, ensuring your practice responds faster than competitors and enhances patient experience.</p>
+
+        <h3>Does it help track the source of enquiries?</h3>
+        <p>Absolutely. The system tracks enquiry sources such as website forms, social media, or paid campaigns, helping you identify which marketing channels are delivering the best results.</p>
+
+        <h3>Is this system GDPR compliant in the UK?</h3>
+        <p>Yes. The system is fully GDPR-compliant, ensuring patient data is stored securely and handled responsibly.</p>
+
+        <h3>Can it replace my reception team?</h3>
+        <p>No. The system supports your reception team as an additional safety net, ensuring no enquiry is missed while your staff focus on in-practice care.</p>
+
+        <h3>How quickly can the system be implemented in a UK dental practice?</h3>
+        <p>Implementation is straightforward. Most practices can have the system up and running within days, with minimal disruption to daily operations.</p>
+
+        <h3>Does using the system really increase bookings?</h3>
+        <p>Yes. By reducing response times and automating follow-ups, practices often see a significant increase in patient bookings, particularly for private treatments.</p>
+
+        <h3>How do I book a demo?</h3>
+        <p>See the system in action by <a class="demo-link" href="https://calendly.com/patientacquisitionhub/30min">booking a free demo</a> today.</p>
+    </div>
+</body>
+</html>

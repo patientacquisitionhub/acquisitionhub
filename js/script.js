@@ -6,59 +6,60 @@ const chatContent = document.getElementById('chat-content');
 const chatInput = document.getElementById('chat-input');
 const sendMessageBtn = document.getElementById('send-message');
 
-// Open chat when 'open-chat' button is clicked
+// Show the chat when the button is clicked
 openChatBtn.addEventListener('click', () => {
   chatbot.classList.add('open');
 });
 
-// Close chat when 'close-chat' button is clicked
+// Close the chat when the "X" button is clicked
 closeChatBtn.addEventListener('click', () => {
   chatbot.classList.remove('open');
 });
 
-// Handle sending user messages and receiving bot responses
+// Handle sending the message and interacting with the API
 sendMessageBtn.addEventListener('click', async () => {
   const userMessage = chatInput.value;
   if (userMessage.trim() !== '') {
-    // Display user message in chat
+    // Display the user's message
     const userMessageElement = document.createElement('div');
     userMessageElement.classList.add('message', 'user-message');
     userMessageElement.textContent = userMessage;
     chatContent.appendChild(userMessageElement);
 
-    chatInput.value = ''; // Clear the input field
-    chatContent.scrollTop = chatContent.scrollHeight; // Scroll to bottom
+    // Clear the input field
+    chatInput.value = '';
+    chatContent.scrollTop = chatContent.scrollHeight;
 
-    // Send the user message to the backend (your Railway API URL)
+    // Send the message to the API (replace the URL with your deployed API URL)
     try {
-      const response = await fetch("https://pah-ai-server-production.up.railway.app/api/chat", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ query: userMessage }),
+      const response = await fetch('https://pah-ai-server-production.up.railway.app/api/chat', {  // Replace with your Railway app URL
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: userMessage })
       });
 
       const data = await response.json();
 
-      // Display bot response
-      const botResponseElement = document.createElement('div');
-      botResponseElement.classList.add('message', 'bot-message');
+      // Display the bot's response
       if (data.response) {
-        botResponseElement.textContent = data.response; // Bot's response from API
+        const botResponse = document.createElement('div');
+        botResponse.classList.add('message', 'bot-message');
+        botResponse.textContent = data.response;
+        chatContent.appendChild(botResponse);
       } else {
-        botResponseElement.textContent = "Sorry, there was an error. Please try again."; // Error message
+        const botResponse = document.createElement('div');
+        botResponse.classList.add('message', 'bot-message');
+        botResponse.textContent = 'Sorry, something went wrong!';
+        chatContent.appendChild(botResponse);
       }
-      chatContent.appendChild(botResponseElement);
 
-      // Scroll to bottom after bot reply
       chatContent.scrollTop = chatContent.scrollHeight;
     } catch (error) {
-      // Handle network or API errors
-      const errorElement = document.createElement('div');
-      errorElement.classList.add('message', 'bot-message');
-      errorElement.textContent = "Error: Unable to communicate with the server. Please try again later.";
-      chatContent.appendChild(errorElement);
+      console.error('Error:', error);
+      const botResponse = document.createElement('div');
+      botResponse.classList.add('message', 'bot-message');
+      botResponse.textContent = 'Oops, an error occurred. Please try again.';
+      chatContent.appendChild(botResponse);
       chatContent.scrollTop = chatContent.scrollHeight;
     }
   }

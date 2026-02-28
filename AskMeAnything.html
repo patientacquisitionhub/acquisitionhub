@@ -162,30 +162,19 @@
         </div>
         <div class="hint-text"></div>
     </div>
-
-
-   <script>
+<script>
 lucide.createIcons();
 
-const API_URL = "https://YOUR-RAILWAY-APP.up.railway.app/chat"; // 🔥 REPLACE THIS
+const API_URL = "https://YOUR-RAILWAY-APP.up.railway.app/chat"; // replace this
 
-const input = document.getElementById("ai-input");
-const sendBtn = document.getElementById("send-btn");
-const chat = document.getElementById("chat");
-
-function addMessage(text, sender) {
-    const div = document.createElement("div");
-    div.classList.add("message", sender);
-    div.textContent = text;
-    chat.appendChild(div);
-    chat.scrollTop = chat.scrollHeight;
-}
+// ✅ Use the CORRECT IDs from your HTML
+const input = document.getElementById("ai-search");
+const sendBtn = document.getElementById("send-trigger");
 
 async function sendMessage() {
     const message = input.value.trim();
     if (!message) return;
 
-    addMessage(message, "user");
     input.value = "";
 
     try {
@@ -199,17 +188,12 @@ async function sendMessage() {
 
         const data = await response.json();
 
-        if (data.reply) {
-            addMessage(data.reply, "bot");
-        } else if (data.response) {
-            addMessage(data.response, "bot");
-        } else {
-            addMessage("Unexpected response format.", "bot");
-        }
+        // For now just show popup (since you don’t have chat UI container)
+        alert(data.reply || data.response || "No response");
 
     } catch (error) {
         console.error(error);
-        addMessage("Error connecting to AI server.", "bot");
+        alert("Error connecting to AI server.");
     }
 }
 
@@ -222,5 +206,6 @@ input.addEventListener("keypress", function(e) {
 });
 </script>
 
+ 
 </body>
 </html>

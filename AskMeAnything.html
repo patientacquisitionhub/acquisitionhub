@@ -1,180 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patient acquisition hub - AI Mate</title>
-    <!-- Lucide Icons for the Microphone and Send icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        :root {
-            --bg-color:#07363c;
-            --search-bg:#000000;/* Darker, more solid navy as seen in image */
-            --border-color: rgba(255, 255, 255, 0.15);
-            --text-color:#000000;
-            --icon-bg: #334155;
-            --send-btn-gradient:#07363c;
-            --focus-glow: rgba(99, 102, 241, 0.25);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patient Acquisition Hub - AI Mate</title>
+<script src="https://unpkg.com/lucide@latest"></script>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
+<style>
+:root {
+    --bg-color:#07363c;
+    --search-bg:#000000;
+    --border-color: rgba(255,255,255,0.15);
+    --icon-bg:#334155;
+    --send-btn-gradient:#07363c;
+}
 
-        body {
-            background-color: var(--bg-color);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-            padding: 20px;
-        }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
 
-        .container {
-            width: 100%;
-            max-width: 850px;
-        }
+body {
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 20px;
+}
 
-        .search-wrapper {
-            position: relative;
-            display: flex;
-            align-items: center;
-            background-color: var(--search-bg);
-            border: 1.5px solid var(--border-color);
-            border-radius: 18px; /* Slightly more rounded as per image */
-            padding: 10px 14px;
-            backdrop-filter: blur(12px);
-            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+.chat-container {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding-right: 10px;
+}
 
-        .search-wrapper:focus-within {
-            border-color: rgba(99, 102, 241, 0.6);
-            box-shadow: 0 0 0 3px var(--focus-glow),
-                        0 10px 30px -5px rgba(0, 0, 0, 0.5);
-        }
+.message {
+    margin-bottom: 12px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    max-width: 75%;
+    line-height: 1.4;
+    font-size: 15px;
+}
 
-        .search-input {
-            flex: 1;
-            background: transparent;
-            border: none;
-            outline: none;
-            color: #f1f5f9;
-            font-size: 16px;
-            padding: 12px 10px;
-            min-width: 0;
-        }
+.user {
+    background-color: #1e293b;
+    color: white;
+    align-self: flex-end;
+    margin-left: auto;
+}
 
-        .search-input::placeholder {
-            color: var(--text-color);
-            opacity: 0.6;
-        }
+.bot {
+    background-color: #0f172a;
+    color: #f1f5f9;
+}
 
-        .action-buttons {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: var(--search-bg);
+    border: 1.5px solid var(--border-color);
+    border-radius: 18px;
+    padding: 10px 14px;
+}
 
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 46px;
-            height: 46px;
-            border-radius: 14px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            color: #f1f5f9;
-        }
+.search-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #f1f5f9;
+    font-size: 16px;
+    padding: 12px 10px;
+}
 
-        .mic-btn {
-            background-color: var(--icon-bg);
-            opacity: 0.9;
-        }
+.action-buttons {
+    display: flex;
+    gap: 12px;
+}
 
-        .mic-btn:hover {
-            background-color: #475569;
-            transform: translateY(-1px);
-        }
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+    color: #f1f5f9;
+}
 
-        .send-btn {
-            background: var(--send-btn-gradient);
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
-        }
-
-        .send-btn:hover {
-            transform: scale(1.04) translateY(-1px);
-            box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
-        }
-
-        .send-btn:active {
-            transform: scale(0.96);
-        }
-
-        .hint-text {
-            margin-top: 16px;
-            text-align: center;
-            color: #475569;
-            font-size: 14px;
-            font-weight: 500;
-            pointer-events: none;
-            opacity: 0.8;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 640px) {
-            .search-wrapper {
-                padding: 8px 10px;
-                border-radius: 16px;
-            }
-            .btn {
-                width: 40px;
-                height: 40px;
-                border-radius: 12px;
-            }
-            .search-input {
-                padding: 8px 6px;
-                font-size: 15px;
-            }
-        }
-    </style>
+.send-btn {
+    background: var(--send-btn-gradient);
+}
+</style>
 </head>
+
 <body>
 
-    <div class="container">
-        <div class="search-wrapper">
-            <input type="text" class="search-input" placeholder="Ask me anything..." id="ai-search" autocomplete="off">
-            <div class="action-buttons">
-                <button class="btn mic-btn" title="Voice Search">
-                    <i data-lucide="mic" size="20"></i>
-                </button>
-                <button class="btn send-btn" id="send-trigger" title="Send Message">
-                    <i data-lucide="send" size="20"></i>
-                </button>
-            </div>
-        </div>
-        <div class="hint-text"></div>
+<div class="chat-container" id="chat"></div>
+
+<div class="search-wrapper">
+    <input type="text" class="search-input" placeholder="Ask me anything..." id="ai-input">
+    <div class="action-buttons">
+        <button class="btn send-btn" id="send-btn">
+            <i data-lucide="send" size="20"></i>
+        </button>
     </div>
+</div>
+
 <script>
 lucide.createIcons();
 
-const API_URL = "https://pah-ai-server-production.up.railway.app/chat"; // replace this
+const API_URL = "https://pah-ai-server-production.up.railway.app/chat"; // 🔥 REPLACE THIS
 
-// ✅ Use the CORRECT IDs from your HTML
-const input = document.getElementById("ai-search");
-const sendBtn = document.getElementById("send-trigger");
+const input = document.getElementById("ai-input");
+const sendBtn = document.getElementById("send-btn");
+const chat = document.getElementById("chat");
+
+function addMessage(text, sender) {
+    const div = document.createElement("div");
+    div.classList.add("message", sender);
+    div.textContent = text;
+    chat.appendChild(div);
+    chat.scrollTop = chat.scrollHeight;
+}
 
 async function sendMessage() {
     const message = input.value.trim();
     if (!message) return;
 
+    addMessage(message, "user");
     input.value = "";
 
     try {
@@ -188,12 +148,17 @@ async function sendMessage() {
 
         const data = await response.json();
 
-        // For now just show popup (since you don’t have chat UI container)
-        alert(data.reply || data.response || "No response");
+        if (data.reply) {
+            addMessage(data.reply, "bot");
+        } else if (data.response) {
+            addMessage(data.response, "bot");
+        } else {
+            addMessage("Unexpected response format.", "bot");
+        }
 
     } catch (error) {
         console.error(error);
-        alert("Error connecting to AI server.");
+        addMessage("Error connecting to AI server.", "bot");
     }
 }
 
@@ -206,6 +171,5 @@ input.addEventListener("keypress", function(e) {
 });
 </script>
 
- 
 </body>
 </html>

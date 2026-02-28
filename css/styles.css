@@ -56,14 +56,18 @@ body {
     border: none;
     outline: none;
     color: #f1f5f9;
-    font-size: 16px;
-    padding: 12px 10px;
+    font-size: 20px; /* Increase font size */
+    padding: 18px 15px; /* Increase padding to make it bigger */
     min-width: 0;
+    height: 50px; /* Optional: Set a fixed height for the input field */
 }
-
 .search-input::placeholder {
     color: var(--text-color);
     opacity: 0.6;
+}
+Explanation
+
+
 }
 
 .action-buttons {

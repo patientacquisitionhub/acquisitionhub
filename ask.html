@@ -144,6 +144,16 @@
                 font-size: 15px;
             }
         }
+        .mic-btn.listening {
+    animation: pulse 1s infinite;
+    box-shadow: 0 0 12px 4px #4ade80; /* green glow */
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 12px 4px #4ade80; }
+    50% { transform: scale(1.1); box-shadow: 0 0 20px 8px #4ade80; }
+    100% { transform: scale(1); box-shadow: 0 0 12px 4px #4ade80; }
+}
     </style>
 </head>
 <body>
